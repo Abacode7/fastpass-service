@@ -23,6 +23,7 @@ public class FastPassController {
     
     @RequestMapping(path="/fastpass", params={"fastpassid"})
     public FastPassCustomer getFastPassById(@RequestParam String fastpassid) {
+        System.out.println("Fastpass id: " + fastpassid);
         return customers.stream().filter(customer -> fastpassid.equals(customer.getFastPassId())).findAny().orElse(new FastPassCustomer());
     }
 }
